@@ -1,7 +1,8 @@
 package com.coderscampus.SpringSecurityJWTDemo.service;
 
-import com.coderscampus.SpringSecurityJWTDemo.domain.Authority;
-import com.coderscampus.SpringSecurityJWTDemo.domain.User;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,14 +14,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import com.coderscampus.SpringSecurityJWTDemo.domain.Authority;
+import com.coderscampus.SpringSecurityJWTDemo.domain.User;
 import com.coderscampus.SpringSecurityJWTDemo.repository.UserRepository;
-import com.coderscampus.SpringSecurityJWTDemo.web.RegistrationController;
 
 import jakarta.transaction.Transactional;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
