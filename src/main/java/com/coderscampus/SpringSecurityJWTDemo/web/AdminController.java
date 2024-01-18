@@ -26,7 +26,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-//@RestController
+
+
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
@@ -42,9 +43,11 @@ public class AdminController {
 		this.passwordEncoder = passwordEncoder;
 	}
 
-//    @PostConstruct // This annotation is used to create an admin user during application startup
-//    public void init() {
-//    	createAdminUser();
+//    @PostConstruct         //this adeptation worked, but if i update credentials it will regenerate anyways
+//    public void init() {  
+//    	if(userRepo.findByEmail("admin@email.com") == null)) {
+//    		createAdminUser();   
+//    	}
 //    }
 //    
 //	List<User> allAdmins = new ArrayList<>();
