@@ -21,8 +21,6 @@ import com.coderscampus.SpringSecurityJWTDemo.security.JwtService;
 import com.coderscampus.SpringSecurityJWTDemo.service.RefreshTokenService;
 import com.coderscampus.SpringSecurityJWTDemo.service.UserServiceImpl;
 
-//@RestController
-//@RequestMapping("/api/v1/auth") 
 @Controller
 public class AuthenticationController {
     private final AuthenticationServiceImpl authenticationService;

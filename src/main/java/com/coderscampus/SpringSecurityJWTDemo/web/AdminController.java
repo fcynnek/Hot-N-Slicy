@@ -42,26 +42,28 @@ public class AdminController {
 		this.passwordEncoder = passwordEncoder;
 	}
 
-    @PostConstruct // This annotation is used to create an admin user during application startup
-    public void init() {
-    	createAdminUser();
-    }
-    
-	List<User> allAdmins = new ArrayList<>();
-
-	
-	public void createAdminUser() {
-		User adminUser = new User();
-		adminUser.setFirstName("Admin");
-		adminUser.setLastName("User");
-		adminUser.setEmail("admin@email.com");
-		adminUser.setPassword(passwordEncoder.encode("adminPassword"));
-		
-		Authority adminAuth = new Authority("ROLE_ADMIN", adminUser);
-		adminUser.setAuthorities(Collections.singletonList(adminAuth));
-		
-		userRepo.save(adminUser);
-	}
+//    @PostConstruct // This annotation is used to create an admin user during application startup
+//    public void init() {
+//    	createAdminUser();
+//    }
+//    
+//	List<User> allAdmins = new ArrayList<>();
+//
+//	
+//	public void createAdminUser() {
+//		
+//			User adminUser = new User();
+//			adminUser.setFirstName("Admin");
+//			adminUser.setLastName("User");
+//			adminUser.setEmail("admin@email.com");
+//			adminUser.setPassword(passwordEncoder.encode("adminPassword"));
+//			
+//			Authority adminAuth = new Authority("ROLE_ADMIN", adminUser);
+//			adminUser.setAuthorities(Collections.singletonList(adminAuth));
+//			
+//			userRepo.save(adminUser);
+//		
+//	}
 
     @GetMapping("/users")
     public ResponseEntity<List<User>> getAllUsers () {
