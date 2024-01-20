@@ -8,4 +8,5 @@ import java.util.List;
 public interface UserService {
     UserDetailsService userDetailsService();
     List<User> findAll();
+    
 }

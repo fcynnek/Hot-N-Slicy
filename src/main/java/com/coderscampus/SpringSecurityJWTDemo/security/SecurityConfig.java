@@ -66,6 +66,7 @@ public class SecurityConfig {
                                         .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()
                                         .requestMatchers("/products").authenticated()
                                         .requestMatchers("/success").authenticated()
+                                        .requestMatchers("/users/**").authenticated()
                                         .requestMatchers("/register").permitAll()
                                         .anyRequest().permitAll()
                         )
