@@ -17,8 +17,8 @@ public class ErrorController {
 		return "userExists";
 	}
 	
-	@GetMapping("/success")
+	@GetMapping("/homepage")
 	public String getSuccessMessage () {
-		return "success";
+		return "homepage";
 	}
 }

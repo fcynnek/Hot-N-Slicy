@@ -65,7 +65,7 @@ public class SecurityConfig {
                                         .requestMatchers("/admin/**").hasRole(Role.ADMIN.name())
                                         .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()
                                         .requestMatchers("/search").authenticated()
-                                        .requestMatchers("/success").authenticated()
+                                        .requestMatchers("/homepage").authenticated()
                                         .requestMatchers("/users/**").authenticated()
                                         .requestMatchers("/register").permitAll()
                                         .anyRequest().permitAll()
@@ -102,7 +102,7 @@ public class SecurityConfig {
 					    	
 					    	response.addCookie(accessTokenCookie);
 							response.addCookie(refreshTokenCookie);
-					    	response.sendRedirect("/success");
+					    	response.sendRedirect("/homepage");
 						}
 					})
 		        	.failureHandler(new AuthenticationFailureHandler() {
