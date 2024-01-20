@@ -4,35 +4,45 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
 <html xmlns:th="http://thymeleaf.org">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Home</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <h1>Successful Registration / Log in</h1>
-        <h3>This will be your home page. We want to have a nav bar <br/>
-            here that contains the site name, "profile", "logout", <br/>
-            and a search bar. This page should also comtain an "about us" <br/>
-            and some fun facts/info/history of pizza and pictures.
 
-        </h3>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
 
-        <form action="/logout" method="post">
-            <button type="submit">Logout</button>
-        </form>
+<body>
+    <h1>Successful Registration / Log in</h1>
+    <h3>This will be your home page. We want to have a nav bar <br />
+        here that contains the site name, "profile", "logout", <br />
+        and "search pizza". This page should also comtain an "about us" <br />
+        and some fun facts/info/history of pizza and pictures.
 
+    </h3>
+
+    <form action="/logout" method="post">
+        <button type="submit">Logout</button>
+    </form>
+
+    <div>
         <a th:href="@{/users/profile}" class="button-link">
             <button type="button">Profile</button>
         </a>
+    </div>
+    <div>
+        <a th:href="@{/search}" class="button-link">
+            <button type="button">Search Pizza</button>
+        </a>
+    </div>
 
-        <!--[if lt IE 7]>
+    <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        
-        <script src="" async defer></script>
-    </body>
+
+    <script src="" async defer></script>
+</body>
+
 </html>
