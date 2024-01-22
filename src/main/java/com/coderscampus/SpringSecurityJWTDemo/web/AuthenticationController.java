@@ -40,7 +40,7 @@ public class AuthenticationController {
 
     @GetMapping("/signin")
 	public String getLogin (@ModelAttribute("user") User user) {
-		return "login";
+		return "signin";
 	}
     
     @GetMapping("/login-error")

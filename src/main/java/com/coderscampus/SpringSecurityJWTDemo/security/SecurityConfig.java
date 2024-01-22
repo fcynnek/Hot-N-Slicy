@@ -126,7 +126,7 @@ public class SecurityConfig {
 		        })
                 .logout(logoutConfigurer -> {logoutConfigurer
                 	.logoutUrl("/logout")
-                	.logoutSuccessUrl("/signin")
+                	.logoutSuccessUrl("/welcome")
                 	// delete cookies from client after logout
                 	.deleteCookies("accessToken") 
                 	.deleteCookies("refreshToken")
