@@ -5,11 +5,11 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class SearchController {
+public class RestaurantController {
     
-    @GetMapping("/search")
+    @GetMapping("/restaurants")
     public String getSearch(ModelMap model) {
-    	return "search";
+    	return "restaurant";
     }
     
 }

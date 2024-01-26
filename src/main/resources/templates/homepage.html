@@ -32,11 +32,11 @@
             <button type="button">Profile</button>
         </a>
     </div>
-    <div>
-        <a th:href="@{/search}" class="button-link">
-            <button type="button">Search Pizza</button>
-        </a>
-    </div>
+
+    <form id="searchForm">
+        <input type="text" id="searchInput" placeholder="Search your favorite pizza *">
+        <button type="submit">Search</button>
+    </form>
 
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
