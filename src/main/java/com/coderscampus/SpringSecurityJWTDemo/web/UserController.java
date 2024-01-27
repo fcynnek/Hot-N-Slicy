@@ -20,6 +20,11 @@ public class UserController {
 		super();
 		this.userServiceImpl = userServiceImpl;
 	}
+	
+	@GetMapping("/homepage")
+	public String successfulLogin () {
+		return "homepage";
+	}
 
 	@GetMapping("/users/profile")
 	public String getUser(ModelMap model) {

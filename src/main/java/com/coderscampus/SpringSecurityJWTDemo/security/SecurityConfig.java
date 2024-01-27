@@ -67,6 +67,7 @@ public class SecurityConfig {
                                         .requestMatchers("/restaurants/**").authenticated()
                                         .requestMatchers("/homepage").authenticated()
                                         .requestMatchers("/users/**").authenticated()
+//                                      .requestMatchers("/process-csv").authenticated()
                                         .requestMatchers("/register").permitAll()
                                         .anyRequest().permitAll()
                         )
