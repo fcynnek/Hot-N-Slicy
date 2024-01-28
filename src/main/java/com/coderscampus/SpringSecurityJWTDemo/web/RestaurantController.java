@@ -1,9 +1,12 @@
 package com.coderscampus.SpringSecurityJWTDemo.web;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.coderscampus.SpringSecurityJWTDemo.domain.Restaurant;
 import com.coderscampus.SpringSecurityJWTDemo.security.FileService;
@@ -26,6 +29,17 @@ public class RestaurantController {
 		Restaurant restaurant = restaurantService.findById(id);
 		model.put("restaurant", restaurant);
 		return "restaurant";
+	}
+	
+	@GetMapping("/restaurants/search")
+	public String searchRestaurants(@RequestParam(required=false) String keyword, ModelMap model) {
+	    if (keyword != null) {
+	        List<Restaurant> searchResults = restaurantService.findByName(keyword);
+	        model.put("searchResults", searchResults);
+	        model.put("keyword", keyword);
+	    }
+
+	    return "homepage";
 	}
 
 //	@GetMapping("/process-csv")

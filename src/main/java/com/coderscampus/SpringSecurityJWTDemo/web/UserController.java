@@ -1,5 +1,6 @@
 package com.coderscampus.SpringSecurityJWTDemo.web;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.security.core.Authentication;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.coderscampus.SpringSecurityJWTDemo.domain.Restaurant;
 import com.coderscampus.SpringSecurityJWTDemo.domain.User;
 import com.coderscampus.SpringSecurityJWTDemo.service.UserServiceImpl;
 
@@ -22,7 +24,8 @@ public class UserController {
 	}
 	
 	@GetMapping("/homepage")
-	public String successfulLogin () {
+	public String successfulLogin (ModelMap model) {
+		model.addAttribute("searchResults", new ArrayList<Restaurant>());
 		return "homepage";
 	}
 
