@@ -34,20 +34,18 @@
     </div>
 
     <form id="searchForm" action="/restaurants/search" method="get">
-        <input type="text" id="searchInput" name="keyword" placeholder="Search your favorite pizza *"
+        <input type="text" id="searchInput" name="keyword" placeholder="Search your pizza *"
                th:value="${keyword}">
         <button type="submit">Search</button>
     
         <!-- Show search suggestions if available -->
         <div id="suggestions" th:if="${#lists.size(searchResults) > 0}">
             <h2>Search Results:</h2>
-            <ul>
-                <li th:each="restaurant : ${searchResults}">
+            <div th:each="restaurant : ${searchResults}">
                     <a th:href="@{'/restaurants/' + ${restaurant.id}}">
                         <span th:text="${restaurant.name}"></span>
                     </a>
-                </li>
-            </ul>
+            </div>
         </div>
     </form>
 
