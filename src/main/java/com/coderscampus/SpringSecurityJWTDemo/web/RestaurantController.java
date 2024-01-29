@@ -2,6 +2,7 @@ package com.coderscampus.SpringSecurityJWTDemo.web;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,6 +41,13 @@ public class RestaurantController {
 	    }
 
 	    return "homepage";
+	}
+	
+	//Chat GPT code for dynamic drop down
+	@GetMapping("/restaurants/suggestions")
+	public ResponseEntity<List<Restaurant>> getRestaurantSuggestions(@RequestParam String keyword) {
+	    List<Restaurant> suggestions = restaurantService.findByName(keyword);
+	    return ResponseEntity.ok(suggestions);
 	}
 
 //	@GetMapping("/process-csv")
