@@ -1,52 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/registration.css">
 
 <head>
   <title>Registration Form</title>
-  <style>
-    body {
-      font-family: 'JetBrains Mono';
-      background-color: #000000;
-    }
-
-    .container {
-      width: 350px;
-      padding: 16px;
-      background-color: rgb(0, 0, 0);
-      margin: 0 auto;
-      margin-top: 100px;
-      border: 1px solid #ffffff;
-    }
-
-    input[type=text],
-    input[type=password] {
-      width: 100%;
-      padding: 12px 20px;
-      margin: 8px 0;
-      display: inline-block;
-      box-sizing: border-box;
-      font-family: 'JetBrains Mono';
-    }
-
-    button {
-      background-color: #000000;
-      color: white;
-      padding: 14px 20px;
-      margin: 8px 0;
-      border: none;
-      cursor: pointer;
-      width: 100%;
-      font-family: 'JetBrains Mono';
-    }
-
-    /* button:hover {
-      border: 1px #000000 solid;
-      background: white;
-      color: black;
-    } 
-    i want this feature, but i cant get the homepage button to hover
-    i will only do this one if that one will work to be consistent */
-  </style>
 </head>
 
 <body>
@@ -55,6 +12,7 @@
     <h2 style="color: #C84C4C;">Registration Form</h2>
     <form th:object="${user}" th:action="@{/register}" method="post" enctype="application/x-www-form-urlencoded"
       id="registrationForm">
+
       <label for="firstName" style="color: white;"><b>First Name</b></label>
       <input type="text" placeholder="Enter First Name *" th:field="*{firstName}" name="firstName" class="required"
         required>
@@ -73,31 +31,13 @@
       <label for="confirmPassword" style="color: white;"><b>Confirm Password</b></label>
       <input type="password" placeholder="Confirm Password *" name="confirmPassword" id="confirmPassword"
         class="required" required>
+        
       <div id="passwordMatchMessage" style="color: red;"></div>
       <button type="submit" style="border: 1px solid #ffffff;">Register</button>
     </form>
   </div>
 
-  <script th:inline="javascript">
-    /*<![CDATA[*/
-
-    document.getElementById('registrationForm').addEventListener('submit', function (event) {
-      var password = document.getElementById('password').value;
-      var confirmPassword = document.getElementById('confirmPassword').value;
-      var passwordMatchMessage = document.getElementById('passwordMatchMessage');
-
-      if (password !== confirmPassword) {
-        passwordMatchMessage.textContent = 'Passwords do not match!';
-        // alert('Passwords do not match!');
-        event.preventDefault(); // Prevent form submission
-      } else {
-        passwordMatchMessage.textContent = ''; // Clear previous message
-      }
-    });
-
-    /*]]>*/
-  </script>
-
+  <script th:inline="javascript" type="text/javascript" src="/js/registration.js"></script>
 </body>
 
 </html>

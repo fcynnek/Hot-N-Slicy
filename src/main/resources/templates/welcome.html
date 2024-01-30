@@ -1,54 +1,36 @@
 <!DOCTYPE html>
 <html>
+    <link rel="stylesheet" href="/css/welcome.css">
 
 <head>
     <title>Hot 'N Slicy</title>
-    <style>
-        /* add css into here to clean up */
-    </style>
 </head>
 
 <body style="background-color: #000000;">
-    <div class="container" style="width: 1200px; height: 720px; position: relative; background: rgb(0, 0, 0); margin: 0 auto;">
-       
-        <div style="width: 693px; height: 157px; left: 109px; top: 261px; position: absolute;background: #000000; border: 1px white solid;">
+    <div class="container">
+        <div class="title-box"></div>
+        <div class="title">HOT ‘N SLICY</div>
+        <div class="sub-title">A WEBSITE FOR PIZZA</div>
+        <div class="divider"></div>
+        <div class="action-box"></div>
+        <div class="action-box-title">What you can do</div>
+        <div class="instagram-facebook-blog">
+            Instagram&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Facebook&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Blog
         </div>
-        <div style="left: 130px; top: 290px; position: absolute; text-align: center; color: #C84C4C; 
-                font-size: 90px; font-family: 'JetBrains Mono'; font-weight: 700; line-height: 96px; word-wrap: break-word">HOT ‘N SLICY
+        <div class="helpcenter-termsofservice-licenses">
+            Center&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Terms of Service&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Licenses
         </div>
-        <div style="width: 376px; height: 63px; left: 395px; top: 380px; position: absolute; 
-                text-align: center; color: white; font-size: 24px; font-family: 'JetBrains Mono'; font-weight: 300; line-height: 24px; word-wrap: break-word">A WEBSITE FOR PIZZA
-        </div>
-        <div style="width: 232px; height: 157px; left: 848px; top: 261px; position: absolute; 
-            background: rgb(0, 0, 0); border: 1px rgb(255, 255, 255) solid">
-        </div>
-        <div style="left: 857px; top: 272px; position: absolute; text-align: center; color: rgb(255, 255, 255); font-size: 15px; font-family: 'JetBrains Mono'; font-weight: 700; line-height: 15px; word-wrap: break-word">
-            What you can do
-        </div>
-        <div class="InstagramFacebookBlog" style="width: 516px; height: 47px; left: -46px; top: 750px; position: absolute; text-align: center; color: rgb(255, 255, 255); font-size: 12px; font-family: JetBrains Mono; font-weight: 700; line-height: 12px; word-wrap: break-word">Instagram&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Facebook&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Blog
-        </div>
-        <div class="HelpCenterTermsOfServiceLicenses" style="width: 345px; height: 37px; left: 791px; top: 750px; position: absolute; text-align: center; color: rgb(255, 255, 255); font-size: 12px; font-family: JetBrains Mono; font-weight: 700; line-height: 12px; word-wrap: break-word">Help Center&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Terms of Service&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Licenses
-        </div>
+        <div class="tag-line">The average person eats 46 slices of <br/>
+            pizza per year. Why not rate them?</div>
         <div>
-            <a th:href="@{/signin}" class="button">
-                <button type="button" style="left: 971px;top: 321px;position: absolute; text-align: center;
-                color: rgb(255, 255, 255);font-size: 15px; font-family: 'JetBrains Mono';font-weight: 700;line-height: 15px; width: 98px; height: 29px; background: rgb(0, 0, 0); border: 1px rgb(255, 255, 255) solid;">Sign-In
-                </button>
+            <a th:href="@{/signin}">
+                <button class="signin-button" type="button">Sign-In</button>
             </a>
         </div>
-        <div class="button">
-            <a th:href="@{/register}" class="button">
-                <button type="button" style="left: 971px;top: 374px; position: absolute; text-align: center;
-                color: rgb(255, 255, 255); font-size: 16px; font-family: 'JetBrains Mono'; font-weight: 700;line-height: 16px; word-wrap: break-word; width: 98px; height: 29px; background: rgb(0, 0, 0); border: 1px rgb(255, 255, 255) solid;"> Register
-                </button>
-        </div>
-
-        <div style="width: 275px; height: 0px; left: 827px; top: 204px; position: absolute; transform: rotate(90deg); transform-origin: 0 0; border: 1px rgb(255, 255, 255) solid">
-        </div>
-        <div
-            style="left: 580px; top: 551px; position: absolute; text-align: center; color: rgb(255, 255, 255); 
-            font-size: 24px; font-family: 'JetBrains Mono'; font-weight: 700; line-height: 24px; word-wrap: break-word">The average person eats 46 slices of <br/>
-            pizza per year. Why not rate them?  
+        <div>
+            <a th:href="@{/register}">
+                <button class="register-button" type="button">Register</button>
+            </a>
         </div>
     </div>
 </body>

@@ -11,28 +11,8 @@
     <title>Home</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="/css/homepage.css">
 
-    <style>
-        .suggestions-container {
-            border: 1px solid #ccc;
-            background-color: #fff;
-            max-height: 150px;
-            width: 300px;
-            overflow-y: auto;
-            padding: 5px;
-        }
-    
-        .suggestions-container a {
-            display: block;
-            text-decoration: none;
-            color: #333;
-        }
-    
-        .suggestions-container a:hover {
-            background-color: #f0f0f0;
-        }
-    </style>
 </head>
 
 <body>
@@ -41,72 +21,28 @@
         here that contains the site name, "profile", "logout", <br />
         and "search pizza". This page should also comtain an "about us" <br />
         and some fun facts/info/history of pizza and pictures.
-
     </h3>
 
     <form action="/logout" method="post">
-        <button type="submit">Logout</button>
+        <button class="logout-button" type="submit">Logout</button>
     </form>
-
     <div>
         <a th:href="@{/users/profile}" class="button-link">
-            <button type="button">Profile</button>
+            <button class="profile-button" type="button">Profile</button>
         </a>
     </div>
-
     <form id="searchForm" action="/restaurants/search" method="get">
         <input type="text" id="searchInput" name="keyword" placeholder="Search your pizza *"
                th:value="${keyword}">
-        <button type="submit">Search</button>
-        <!-- Show search suggestions if available -->
+        <button class="search-button" type="submit">Search</button>
         <div id="suggestions"></div>
     </form>
-
-    <!-- JavaScript for Autocomplete Suggestions From Chat GPT - Figure Out What it Means Hahaha-->
-    <script th:inline="javascript">
-        /*<![CDATA[*/
-        document.addEventListener('DOMContentLoaded', function () {
-            var searchInput = document.getElementById('searchInput');
-            var suggestionsDiv = document.getElementById('suggestions');
     
-            searchInput.addEventListener('input', function () {
-                var keyword = searchInput.value.trim();
-                if (keyword !== '') {
-                    // Send AJAX request to get suggestions
-                    var xhr = new XMLHttpRequest();
-                    xhr.open('GET', '/restaurants/suggestions?keyword=' + encodeURIComponent(keyword), true);
-                    xhr.onreadystatechange = function () {
-                        if (xhr.readyState === 4 && xhr.status === 200) {
-                            // Update suggestions div with received data
-                            var suggestions = JSON.parse(xhr.responseText);
-                            displaySuggestions(suggestions);
-                        }
-                    };
-                    xhr.send();
-                } else {
-                    // Clear suggestions if the input is empty
-                    suggestionsDiv.innerHTML = '';
-                }
-            });
-    
-            function displaySuggestions(suggestions) {
-                var suggestionsHtml = '<div class="suggestions-container">';
-                suggestions.forEach(function (restaurant) {
-                    suggestionsHtml += '<a href="/restaurants/' + restaurant.id + '">' + restaurant.name + '</a>';
-                });
-                suggestionsHtml += '</div>';
-    
-                suggestionsDiv.innerHTML = suggestionsHtml;
-            }
-        });
-        /*]]>*/
-    </script>
-
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-    <script src="" async defer></script>
+    <script th:inline="javascript" type="text/javascript" src="/js/homepage.js"></script>
 </body>
 
 </html>

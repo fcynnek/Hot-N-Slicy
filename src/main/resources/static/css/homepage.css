@@ -1,0 +1,27 @@
+.suggestions-container {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    max-height: 150px;
+    width: 300px;
+    overflow-y: auto;
+    padding: 5px;
+}
+
+.suggestions-container a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+}
+
+.suggestions-container a:hover {
+    background-color: #f0f0f0;
+}
+.logout-button{
+    cursor: pointer;
+}
+.profile-button{
+    cursor: pointer;
+}
+.search-button{
+    cursor: pointer;
+}

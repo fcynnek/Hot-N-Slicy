@@ -1,0 +1,158 @@
+.container{
+    width: 1200px;
+    height: 720px;
+    position: relative;
+    background: rgb(0, 0, 0);
+    margin: 0 auto;
+}
+.title-box{
+    width: 693px;
+    height: 157px;
+    left: 109px;
+    top: 261px;
+    position: absolute;
+    background: #000000;
+    border: 1px white solid;
+}
+.title{
+    left: 130px; 
+    top: 290px; 
+    position: absolute; 
+    text-align: center; 
+    color: #C84C4C; 
+    font-size: 90px; 
+    font-family: 'JetBrains Mono'; 
+    font-weight: 700; 
+    line-height: 96px; 
+    word-wrap: break-word;
+}
+.sub-title{
+    width: 376px; 
+    height: 63px; 
+    left: 395px; 
+    top: 380px; 
+    position: absolute; 
+    text-align: center; 
+    color: white; 
+    font-size: 24px; 
+    font-family: 'JetBrains Mono'; 
+    font-weight: 300; 
+    line-height: 24px; 
+    word-wrap: break-word;
+}
+.action-box{
+    width: 232px; 
+    height: 157px; 
+    left: 848px; 
+    top: 261px; 
+    position: absolute; 
+    background: rgb(0, 0, 0); 
+    border: 1px rgb(255, 255, 255) solid;
+}
+.action-box-title{
+    left: 857px; 
+    top: 272px; 
+    position: absolute; 
+    text-align: center; 
+    color: rgb(255, 255, 255); 
+    font-size: 15px; 
+    font-family: 'JetBrains Mono'; 
+    font-weight: 700; 
+    line-height: 15px; 
+    word-wrap: break-word;
+}
+.instagram-facebook-blog{
+    width: 516px; 
+    height: 47px; 
+    left: -46px; 
+    top: 750px; 
+    position: absolute; 
+    text-align: center; 
+    color: rgb(255, 255, 255); 
+    font-size: 12px; 
+    font-family: 'JetBrains Mono'; 
+    font-weight: 700; 
+    line-height: 12px; 
+    word-wrap: break-word;
+    cursor: pointer;
+}
+.helpcenter-termsofservice-licenses{
+    width: 345px; 
+    height: 37px; 
+    left: 791px; 
+    top: 750px; 
+    position: absolute; 
+    text-align: center; 
+    color: rgb(255, 255, 255); 
+    font-size: 12px; 
+    font-family: 'JetBrains Mono'; 
+    font-weight: 700; 
+    line-height: 12px; 
+    word-wrap: break-word;
+    cursor: pointer;
+}
+.divider{
+    width: 275px; 
+    height: 0px; 
+    left: 827px; 
+    top: 204px; 
+    position: absolute; 
+    transform: rotate(90deg); 
+    transform-origin: 0 0; 
+    border: 1px rgb(255, 255, 255) solid;
+}
+.tag-line{
+    left: 580px; 
+    top: 551px; 
+    position: absolute; 
+    text-align: center; 
+    color: rgb(255, 255, 255); 
+    font-size: 24px; 
+    font-family: 'JetBrains Mono'; 
+    font-weight: 700; 
+    line-height: 24px; 
+    word-wrap: break-word"
+}
+.signin-button{
+    left: 971px;
+    top: 321px;
+    position: absolute; 
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 15px; 
+    font-family: 'JetBrains Mono';
+    font-weight: 700;
+    line-height: 15px; 
+    width: 98px; 
+    height: 29px; 
+    background: rgb(0, 0, 0); 
+    border: 1px rgb(255, 255, 255) solid;
+    cursor: pointer;
+}
+.signin-button:hover {
+    border: 1px #000000 solid;
+    background: white;
+    color: black;
+  } 
+.register-button{
+    left: 971px;
+    top: 374px; 
+    position: absolute; 
+    text-align: center;
+    color: rgb(255, 255, 255); 
+    font-size: 16px; 
+    font-family: 'JetBrains Mono'; 
+    font-weight: 700;
+    line-height: 16px; 
+    word-wrap: break-word; 
+    width: 98px; 
+    height: 29px; 
+    background: rgb(0, 0, 0); 
+    border: 1px rgb(255, 255, 255) solid;
+    cursor: pointer;
+}
+.register-button:hover {
+    border: 1px #000000 solid;
+    background: white;
+    color: black;
+  } 
