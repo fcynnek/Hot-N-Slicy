@@ -1,5 +1,7 @@
 package com.coderscampus.SpringSecurityJWTDemo.web;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,9 +16,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.coderscampus.SpringSecurityJWTDemo.domain.Authority;
 import com.coderscampus.SpringSecurityJWTDemo.domain.User;
 import com.coderscampus.SpringSecurityJWTDemo.repository.UserRepository;
 import com.coderscampus.SpringSecurityJWTDemo.service.UserServiceImpl;
+
+import jakarta.annotation.PostConstruct;
 
 
 @Controller
@@ -36,28 +41,26 @@ public class AdminController {
 
 //    @PostConstruct         //this adeptation worked, but if i update credentials it will regenerate anyways
 //    public void init() {  
-//    	if(userRepo.findByEmail("admin@email.com") == null)) {
-//    		createAdminUser();   
-//    	}
+//    	createAdminUser();
 //    }
-//    
-//	List<User> allAdmins = new ArrayList<>();
-//
-//	
-//	public void createAdminUser() {
-//		
-//			User adminUser = new User();
-//			adminUser.setFirstName("Admin");
-//			adminUser.setLastName("User");
-//			adminUser.setEmail("admin@email.com");
-//			adminUser.setPassword(passwordEncoder.encode("adminPassword"));
-//			
-//			Authority adminAuth = new Authority("ROLE_ADMIN", adminUser);
-//			adminUser.setAuthorities(Collections.singletonList(adminAuth));
-//			
-//			userRepo.save(adminUser);
-//		
-//	}
+    
+	List<User> allAdmins = new ArrayList<>();
+
+	
+	public void createAdminUser() {
+		
+			User adminUser = new User();
+			adminUser.setFirstName("Admin");
+			adminUser.setLastName("User");
+			adminUser.setEmail("admin@email.com");
+			adminUser.setPassword(passwordEncoder.encode("adminPassword"));
+			
+			Authority adminAuth = new Authority("ROLE_ADMIN", adminUser);
+			adminUser.setAuthorities(Collections.singletonList(adminAuth));
+			
+			userRepo.save(adminUser);
+		
+	}
 
     @GetMapping("/users")
     public ResponseEntity<List<User>> getAllUsers () {
