@@ -10,25 +10,32 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.coderscampus.SpringSecurityJWTDemo.domain.Restaurant;
+import com.coderscampus.SpringSecurityJWTDemo.domain.Review;
 import com.coderscampus.SpringSecurityJWTDemo.security.FileService;
 import com.coderscampus.SpringSecurityJWTDemo.service.RestaurantService;
+import com.coderscampus.SpringSecurityJWTDemo.service.ReviewService;
 
 @Controller
 public class RestaurantController {
 
 	private FileService fileService;
 	private RestaurantService restaurantService;
+	private ReviewService reviewService;
 
-	public RestaurantController(FileService fileService, RestaurantService restaurantService) {
+	public RestaurantController(FileService fileService, RestaurantService restaurantService,
+			ReviewService reviewService) {
 		super();
 		this.fileService = fileService;
 		this.restaurantService = restaurantService;
+		this.reviewService = reviewService;
 	}
 
-	@GetMapping("/restaurants/{id}")
-	public String getRestaurantById(@PathVariable Integer id, ModelMap model) {
-		Restaurant restaurant = restaurantService.findById(id);
+	@GetMapping("/restaurants/{restaurantId}")
+	public String getRestaurantById(@PathVariable Integer restaurantId, ModelMap model) {
+		Restaurant restaurant = restaurantService.findById(restaurantId);
+		Review review = reviewService.findReviewsByRestaurantId(restaurantId);
 		model.put("restaurant", restaurant);
+		model.put("review", review);
 		return "restaurant";
 	}
 	
@@ -39,7 +46,6 @@ public class RestaurantController {
 	        model.put("searchResults", searchResults);
 	        model.put("keyword", keyword);
 	    }
-
 	    return "homepage";
 	}
 	
@@ -49,6 +55,8 @@ public class RestaurantController {
 	    List<Restaurant> suggestions = restaurantService.findByName(keyword);
 	    return ResponseEntity.ok(suggestions);
 	}
+	
+	
 
 //	@GetMapping("/process-csv")
 //	public ResponseEntity<String> processCsv() {

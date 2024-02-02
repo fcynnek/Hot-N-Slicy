@@ -19,8 +19,8 @@ public class RestaurantService {
 	}
 
 
-	public Restaurant findById(Integer id) {
-		Optional<Restaurant> restaurantOpt = restaurantRepo.findById(id);
+	public Restaurant findById(Integer restaurantId) {
+		Optional<Restaurant> restaurantOpt = restaurantRepo.findById(restaurantId);
 		return restaurantOpt.orElse(null);
 	}
 	

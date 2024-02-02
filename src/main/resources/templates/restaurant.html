@@ -1,14 +1,28 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>[[${restaurant.name}]]</title>
-    </head>
-    <body>
-        <h1>[[${restaurant.name}]]</h1>
-        <h3>This is going to be a results page for your search on the home page!<br/>
-        </h3>
-        <div>
-            <a href="/homepage">Back</a><br />
-        </div>
-    </body>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+    <title>[[${restaurant.name}]]</title>
+    <link rel="stylesheet" href="/css/restaurant.css">
+</head>
+
+<body>
+    <h1>[[${restaurant.name}]]</h1><br/>
+
+    <h3>Leave a review here!</h3><br/>
+
+    <div id="review-box"></div><br />
+    <div>
+        <textarea id="message-input" th:attr="data-id=${restaurant.id}" 
+            placeholder="Type your review..."></textarea>
+        <button id="send-button">Send</button>
+    </div>
+
+    <div>
+        <a href="/homepage">Back</a><br />
+    </div>
+    
+    <script th:inline="javascript" type="text/javascript" src="/js/restaurant.js"></script>
+</body>
+
 </html>

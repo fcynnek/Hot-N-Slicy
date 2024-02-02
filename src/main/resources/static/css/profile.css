@@ -1,0 +1,10 @@
+#conversation-box {
+    height: 300px; /* Set a fixed height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 3px solid #ccc; /* Add a border for visual clarity */
+    padding: 20px; /* Add padding for better appearance */
+}
+#message-input{
+    height: 50px;
+    width: 500px;
+}
