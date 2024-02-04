@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     searchInput.addEventListener('input', function () {
         var keyword = searchInput.value.trim();
         if (keyword !== '') {
-            // Send AJAX request to get suggestions
+            // Send request to get suggestions
             var xhr = new XMLHttpRequest();
             xhr.open('GET', '/restaurants/suggestions?keyword=' + encodeURIComponent(keyword), true);
             xhr.onreadystatechange = function () {

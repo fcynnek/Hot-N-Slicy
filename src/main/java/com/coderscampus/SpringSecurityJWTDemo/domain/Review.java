@@ -1,10 +1,14 @@
 package com.coderscampus.SpringSecurityJWTDemo.domain;
 
+import java.util.List;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -17,21 +21,25 @@ public class Review {
 	@ManyToOne
 	@JoinColumn(name = "restaurant_id")
 	private Restaurant restaurant;
-	@ManyToOne
+	@ManyToMany
 	@JoinColumn(name = "user_id")
-	private User user;
-	private String review;
-	
+	private List<User> user;
+	private String reviewContents;
+	@Column(name = "rest_id")
+	private Integer restaurantId;
+
 	public Review() {
 
 	}
 
-	public Review(Integer reviewId, Restaurant restaurant, User user, String review) {
+	public Review(Integer reviewId, Restaurant restaurant, List<User> user, String reviewContents,
+			Integer restaurantId) {
 		super();
 		this.reviewId = reviewId;
 		this.restaurant = restaurant;
 		this.user = user;
-		this.review = review;
+		this.reviewContents = reviewContents;
+		this.restaurantId = restaurantId;
 	}
 
 	public Integer getReviewId() {
@@ -42,6 +50,30 @@ public class Review {
 		this.reviewId = reviewId;
 	}
 
+	public void setUser(List<User> user) {
+		this.user = user;
+	}
+
+	public List<User> getUser() {
+		return user;
+	}
+
+	public String getReviewContents() {
+		return reviewContents;
+	}
+
+	public void setReviewContents(String reviewContents) {
+		this.reviewContents = reviewContents;
+	}
+
+	public Integer getRestaurantId() {
+		return restaurantId;
+	}
+
+	public void setRestaurantId(Integer restaurantId) {
+		this.restaurantId = restaurantId;
+	}
+
 	public Restaurant getRestaurant() {
 		return restaurant;
 	}
@@ -50,28 +82,10 @@ public class Review {
 		this.restaurant = restaurant;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public String getReview() {
-		return review;
-	}
-
-	public void setReview(String review) {
-		this.review = review;
-	}
-
 	@Override
 	public String toString() {
-		return "Review [reviewId=" + reviewId + ", restaurant=" + restaurant + ", user=" + user + ", review=" + review
-				+ "]";
+		return "Review [reviewId=" + reviewId + ", user=" + user + ", reviewContents=" + reviewContents
+				+ ", restaurantId=" + restaurantId + "]";
 	}
-	
-}
 
-	
+}

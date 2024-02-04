@@ -1,14 +1,14 @@
 var sendButton = document.querySelector(`#send-button`)
 var messageInput = document.querySelector(`#message-input`)
 
-var restaurantId = messageInput.getAttribute('data-id')
+var restaurantId = messageInput.getAttribute('restaurant-id')
 
 
 function sendMessage() {
     console.log('Send button clicked')
     var review = {
-        'restaurantId': restaurantId,
-        'messageContents': messageInput.value
+        restaurantId: restaurantId,
+        reviewContents: messageInput.value
     }
     console.log('Review to be sent:', review);
 
@@ -22,7 +22,7 @@ function sendMessage() {
     })
         .then(response => response.json())
         .then(data => {
-            console.log('Review actually sent:', data)
+            console.log('Review actually recieved:', data)
         });
 }
 

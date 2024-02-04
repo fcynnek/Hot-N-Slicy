@@ -58,11 +58,11 @@ public class RestaurantController {
 	
 	
 
-//	@GetMapping("/process-csv")
-//	public ResponseEntity<String> processCsv() {
-//		fileService.readFile();
-//		return ResponseEntity.ok("CSV processing successful!");
-//	} 
+	@GetMapping("/process-csv")
+	public ResponseEntity<String> processCsv() {
+		fileService.readFile();
+		return ResponseEntity.ok("CSV processing successful!");
+	} 
 //	this is calling the method that populated the data and saves to db. 
 //  only uncomment when you need to repopulate.	Could set up similar
 //  to the AdminController
