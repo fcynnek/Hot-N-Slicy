@@ -1,9 +1,9 @@
 #review-box {
-    height: 60px; 
+    height: 30px; 
     width: 600px;
     overflow-y: auto; /* Enable vertical scrolling */
     border: 3px solid #ccc;
-    padding: 20px; 
+    padding: 10px; 
 }
 #message-input{
     height: 50px;

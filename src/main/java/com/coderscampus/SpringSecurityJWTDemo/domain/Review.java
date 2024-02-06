@@ -1,7 +1,10 @@
 package com.coderscampus.SpringSecurityJWTDemo.domain;
 
 import java.util.List;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,29 +20,31 @@ import jakarta.persistence.Table;
 public class Review {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "review_id")
 	private Integer reviewId;
 	@ManyToOne
 	@JoinColumn(name = "restaurant_id")
+	@JsonIgnoreProperties
 	private Restaurant restaurant;
-	@ManyToMany
-	@JoinColumn(name = "user_id")
+	@ManyToMany(mappedBy = "reviews", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	private List<User> user;
 	private String reviewContents;
 	@Column(name = "rest_id")
+
 	private Integer restaurantId;
 
-	public Review() {
-
+	public void setRestaurantId(Integer restaurantId) {
+		this.restaurantId = restaurantId;
 	}
 
-	public Review(Integer reviewId, Restaurant restaurant, List<User> user, String reviewContents,
-			Integer restaurantId) {
-		super();
-		this.reviewId = reviewId;
-		this.restaurant = restaurant;
+	public Review() {
+	}
+
+	public Review(List<User> user, String reviewContents, Integer restaurantId, Restaurant restaurant) {
 		this.user = user;
 		this.reviewContents = reviewContents;
 		this.restaurantId = restaurantId;
+		this.restaurant = restaurant;
 	}
 
 	public Integer getReviewId() {
@@ -70,22 +75,11 @@ public class Review {
 		return restaurantId;
 	}
 
-	public void setRestaurantId(Integer restaurantId) {
-		this.restaurantId = restaurantId;
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
 	}
 
 	public Restaurant getRestaurant() {
 		return restaurant;
 	}
-
-	public void setRestaurant(Restaurant restaurant) {
-		this.restaurant = restaurant;
-	}
-
-	@Override
-	public String toString() {
-		return "Review [reviewId=" + reviewId + ", user=" + user + ", reviewContents=" + reviewContents
-				+ ", restaurantId=" + restaurantId + "]";
-	}
-
 }

@@ -14,6 +14,8 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -33,7 +35,10 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JsonIgnoreProperties("user")
     private List<Authority> authorities = new ArrayList<>();
-    @ManyToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @ManyToMany( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @JoinTable(name = "user_reviews",
+        	   joinColumns = @JoinColumn(name = "user_id"),
+        	   inverseJoinColumns = @JoinColumn(name = "review_id"))
     private List<Review> reviews = new ArrayList<>();
     
     /*
@@ -41,13 +46,15 @@ public class User implements UserDetails {
      * private String confirmPassword;
      */
     
+  
     
     @Override
     public Collection<Authority> getAuthorities() {
         return authorities;
     }
 
-    public void setAuthorities(List<Authority> authorities) {
+
+	public void setAuthorities(List<Authority> authorities) {
         this.authorities = authorities;
     }
 

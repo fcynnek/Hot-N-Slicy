@@ -23,65 +23,63 @@ import com.coderscampus.SpringSecurityJWTDemo.service.UserServiceImpl;
 
 import jakarta.annotation.PostConstruct;
 
-
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-    private UserServiceImpl userService;
-    private UserRepository userRepo;
-    private PasswordEncoder passwordEncoder;
-    private Logger logger = LoggerFactory.getLogger(AdminController.class);
-    
-    public AdminController(UserServiceImpl userService, UserRepository userRepo, PasswordEncoder passwordEncoder) {
+	private UserServiceImpl userService;
+	private UserRepository userRepo;
+	private PasswordEncoder passwordEncoder;
+	private Logger logger = LoggerFactory.getLogger(AdminController.class);
+
+	public AdminController(UserServiceImpl userService, UserRepository userRepo, PasswordEncoder passwordEncoder) {
 		super();
 		this.userService = userService;
 		this.userRepo = userRepo;
 		this.passwordEncoder = passwordEncoder;
 	}
 
-//    @PostConstruct         //this adeptation worked, but if i update credentials it will regenerate anyways
-//    public void init() {  
-//    	createAdminUser();
-//    }
-    
+//	@PostConstruct // this adeptation worked, but if i update credentials it will regenerate anyways
+//	public void init() {
+//		createAdminUser();
+//	}
+
 	List<User> allAdmins = new ArrayList<>();
 
-	
 	public void createAdminUser() {
-		
-			User adminUser = new User();
-			adminUser.setFirstName("Admin");
-			adminUser.setLastName("User");
-			adminUser.setEmail("admin@email.com");
-			adminUser.setPassword(passwordEncoder.encode("adminPassword"));
-			
-			Authority adminAuth = new Authority("ROLE_ADMIN", adminUser);
-			adminUser.setAuthorities(Collections.singletonList(adminAuth));
-			
-			userRepo.save(adminUser);
-		
+
+		User adminUser = new User();
+		adminUser.setFirstName("Admin");
+		adminUser.setLastName("User");
+		adminUser.setEmail("admin@email.com");
+		adminUser.setPassword(passwordEncoder.encode("adminPassword"));
+
+		Authority adminAuth = new Authority("ROLE_ADMIN", adminUser);
+		adminUser.setAuthorities(Collections.singletonList(adminAuth));
+
+		userRepo.save(adminUser);
+
 	}
 
-    @GetMapping("/users")
-    public ResponseEntity<List<User>> getAllUsers () {
-        List<User> users = userService.findAll();
-        return ResponseEntity.ok(users);
-    }
-    
-    @GetMapping("/dashboard")
-    public String getDashboard (ModelMap model) {
-    	List<User> users = userService.findAll();
-    	model.addAttribute("userList", users);
-    	return "dashboard";
-    }
-    
-    @PostMapping("/makeAdmin")
-    public ResponseEntity<String> elevateToAdmin (@RequestParam Integer userId) {
-    	Optional<User> findUser = userService.findUserById(userId);
-    	    	
-    	userService.elevateUserToAdmin(userId);
-    	logger.info("Processing elevation for user: {}", findUser.get().getEmail());
-    	logger.info("Role: {}", findUser.get().getAuthorities());
-    	return ResponseEntity.ok("User elevated to admin");
-    }
+	@GetMapping("/users")
+	public ResponseEntity<List<User>> getAllUsers() {
+		List<User> users = userService.findAll();
+		return ResponseEntity.ok(users);
+	}
+
+	@GetMapping("/dashboard")
+	public String getDashboard(ModelMap model) {
+		List<User> users = userService.findAll();
+		model.addAttribute("userList", users);
+		return "dashboard";
+	}
+
+	@PostMapping("/makeAdmin")
+	public ResponseEntity<String> elevateToAdmin(@RequestParam Integer userId) {
+		Optional<User> findUser = userService.findUserById(userId);
+
+		userService.elevateUserToAdmin(userId);
+		logger.info("Processing elevation for user: {}", findUser.get().getEmail());
+		logger.info("Role: {}", findUser.get().getAuthorities());
+		return ResponseEntity.ok("User elevated to admin");
+	}
 }

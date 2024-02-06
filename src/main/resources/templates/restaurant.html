@@ -7,11 +7,18 @@
 </head>
 
 <body>
-    <h1>[[${restaurant.name}]]</h1><br/>
+    <h1>[[${restaurant.name}]]</h1><br />
 
-    <h3>Leave a review here!</h3><br/>
+    <h3>Leave a review here!</h3><br />
 
-    <div id="review-box"></div><br />
+    <ul th:each="item : ${resReviews}">
+        <div id="review-box">
+            <!-- Using th:each to iterate over the list -->
+            <div th:text="${item.reviewContents}"></div>
+        </div><br />
+    </ul>
+
+
     <div>
         <textarea id="message-input" th:attr="restaurant-id=${restaurant.id}"
             placeholder="Type your review..."></textarea>
@@ -21,7 +28,7 @@
     <div>
         <a href="/homepage">Back</a><br />
     </div>
-    
+
     <script th:inline="javascript" type="text/javascript" src="/js/restaurant.js"></script>
 </body>
 
