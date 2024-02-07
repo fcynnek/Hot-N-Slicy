@@ -41,13 +41,11 @@ public class RestaurantController {
 	@GetMapping("/restaurants/{restaurantId}")
 	public String getRestaurantById(@PathVariable Integer restaurantId, ModelMap model) {
 		Restaurant restaurant = restaurantService.findById(restaurantId);
-//		Review review = reviewService.findReviewsByRestaurantId(restaurantId);
 		List<Review> resReviews = restaurant.getReviews();
 		if (resReviews != null) {
 			model.put("resReviews", resReviews);
 		}
 		model.put("restaurant", restaurant);
-//		model.put("review", review);
 		return "restaurant";
 	}
 
@@ -61,7 +59,6 @@ public class RestaurantController {
 		return "homepage";
 	}
 
-	// Chat GPT code for dynamic drop down
 	@GetMapping("/restaurants/suggestions")
 	public ResponseEntity<List<Restaurant>> getRestaurantSuggestions(@RequestParam String keyword) {
 		List<Restaurant> suggestions = restaurantService.findByName(keyword);

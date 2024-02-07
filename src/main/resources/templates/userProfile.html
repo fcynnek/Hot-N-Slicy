@@ -2,15 +2,17 @@
 <html>
     <head>
         <title>Profile</title>
+        <link rel="stylesheet" href="/css/userProfile.css">
     </head>
     <body>
         <h1>Welcome, [[${user.firstName}]]</h1>
-        <h3>This is your user profile! In here you should see your personal <br/>
-            information along with comments and reviews you've given and <br/>
-            the item that they are attached to. These items should link to <br/>
-            their own pages, whether it be a restaurant or store bought pizza. <br/>
-            From there you'll see all reviews given to that particular item.
-        </h3>
+
+        <h3>Here are all of the reviews you've given!</h3><br/>
+
+        <ul th:each="review : ${resReviews}">
+            <div id="review-box"> <b>[[${review.restaurant.name}]]</b>: [[${review.reviewContents}]]</div><br />
+        </ul>
+
         <div>
             <a href="/homepage">Back</a><br />
         </div>

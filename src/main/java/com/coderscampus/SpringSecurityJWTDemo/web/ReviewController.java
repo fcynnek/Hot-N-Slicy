@@ -24,15 +24,13 @@ import com.coderscampus.SpringSecurityJWTDemo.service.UserServiceImpl;
 public class ReviewController {
 
 	private ReviewService reviewService;
-	private RestaurantService restaurantService;
 	private UserServiceImpl userServiceImpl;
 	private RestaurantRepository resRepository;
 
-	public ReviewController(ReviewService reviewService, RestaurantService restaurantService,
+	public ReviewController(ReviewService reviewService,
 			UserServiceImpl userServiceImpl, RestaurantRepository resRepository) {
 		super();
 		this.reviewService = reviewService;
-		this.restaurantService = restaurantService;
 		this.userServiceImpl = userServiceImpl;
 		this.resRepository = resRepository;
 	}
@@ -65,7 +63,6 @@ public class ReviewController {
 				newReview.setRestaurant(foundRestaurant.get());
 			}
 			foundUser.get().getReviews().add(newReview);
-//		userServiceImpl.save(foundUser.get());
 			reviewService.saveMessage(newReview);
 		}
 		System.out.println("Received review: " + review);

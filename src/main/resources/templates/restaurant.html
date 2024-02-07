@@ -11,10 +11,9 @@
 
     <h3>Leave a review here!</h3><br />
 
-    <ul th:each="item : ${resReviews}">
+    <ul th:each="review : ${resReviews}">
         <div id="review-box">
-            <!-- Using th:each to iterate over the list -->
-            <div th:text="${item.reviewContents}"></div>
+            <div th:text="${review.reviewContents}"></div>
         </div><br />
     </ul>
 

@@ -1,6 +1,7 @@
 package com.coderscampus.SpringSecurityJWTDemo.web;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.security.core.Authentication;
@@ -10,6 +11,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.coderscampus.SpringSecurityJWTDemo.domain.Restaurant;
+import com.coderscampus.SpringSecurityJWTDemo.domain.Review;
 import com.coderscampus.SpringSecurityJWTDemo.domain.User;
 import com.coderscampus.SpringSecurityJWTDemo.service.UserServiceImpl;
 
@@ -30,13 +32,15 @@ public class UserController {
 	}
 
 	@GetMapping("/users/profile")
-	public String getUser(ModelMap model) {
+	public String getUser(ModelMap model, Restaurant restaurant) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String username = auth.getName();
 	    Optional<User> userOpt = userServiceImpl.findUserByEmail(username); 
 	    if (userOpt.isPresent()) {
 	    	model.addAttribute("user", userOpt.get());
 	    	model.addAttribute("email", userOpt.get().getEmail());
+	    	List<Review> resReviews = userOpt.get().getReviews();
+	        model.addAttribute("resReviews", resReviews);
 	    }
 		return "userProfile";
 	}
