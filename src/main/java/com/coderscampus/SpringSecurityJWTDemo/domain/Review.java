@@ -26,11 +26,10 @@ public class Review {
 	@JoinColumn(name = "restaurant_id")
 	@JsonIgnoreProperties
 	private Restaurant restaurant;
-	@ManyToMany(mappedBy = "reviews", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@ManyToMany(mappedBy = "reviews", cascade = { CascadeType.PERSIST, CascadeType.MERGE})
 	private List<User> user;
 	private String reviewContents;
 	@Column(name = "rest_id")
-
 	private Integer restaurantId;
 
 	public void setRestaurantId(Integer restaurantId) {

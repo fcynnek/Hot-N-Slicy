@@ -10,13 +10,13 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.coderscampus.SpringSecurityJWTDemo.domain.Restaurant;
 import com.coderscampus.SpringSecurityJWTDemo.domain.Review;
 import com.coderscampus.SpringSecurityJWTDemo.domain.User;
 import com.coderscampus.SpringSecurityJWTDemo.repository.RestaurantRepository;
-import com.coderscampus.SpringSecurityJWTDemo.service.RestaurantService;
 import com.coderscampus.SpringSecurityJWTDemo.service.ReviewService;
 import com.coderscampus.SpringSecurityJWTDemo.service.UserServiceImpl;
 
@@ -67,6 +67,12 @@ public class ReviewController {
 		}
 		System.out.println("Received review: " + review);
 		return review;
+	}
+	
+	@PostMapping("/users/profile/delete")
+	public String deleteReview(@RequestParam("reviewId") Integer reviewId) {
+		reviewService.delete(reviewId);
+		return "redirect:/users/profile";
 	}
 
 }
