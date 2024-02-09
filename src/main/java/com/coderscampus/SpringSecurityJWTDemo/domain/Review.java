@@ -81,4 +81,12 @@ public class Review {
 	public Restaurant getRestaurant() {
 		return restaurant;
 	}
+
+	@Override
+	public String toString() {
+		return "Review [reviewId=" + reviewId + ", restaurant=" + restaurant + ", user=" + user + ", reviewContents="
+				+ reviewContents + ", restaurantId=" + restaurantId + "]";
+	}
+	
+	
 }

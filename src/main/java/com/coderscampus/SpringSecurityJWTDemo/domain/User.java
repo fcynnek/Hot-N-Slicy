@@ -35,7 +35,7 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JsonIgnoreProperties("user")
     private List<Authority> authorities = new ArrayList<>();
-    @ManyToMany( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @ManyToMany( cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
     @JoinTable(name = "user_reviews",
         	   joinColumns = @JoinColumn(name = "user_id"),
         	   inverseJoinColumns = @JoinColumn(name = "review_id"))

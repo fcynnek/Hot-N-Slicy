@@ -18,7 +18,7 @@ public class Restaurant {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
-	@ManyToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
+	@ManyToMany(mappedBy = "restaurant", cascade = CascadeType.PERSIST)
     private List<Review> reviews = new ArrayList<>();
 
 	public Restaurant() {

@@ -76,7 +76,6 @@ public class RestaurantController {
 			new ReviewModel(item.getReviewContents(), "Test")
 		)
 		.collect(Collectors.toList());
-//		return new ResponseEntity<>(foundRestaurant.getReviews(), HttpStatus.OK);
 		return reviewsContent;
 	}
 
