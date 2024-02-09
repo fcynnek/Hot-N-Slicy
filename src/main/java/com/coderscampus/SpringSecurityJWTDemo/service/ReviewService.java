@@ -38,17 +38,15 @@ public class ReviewService {
 	public void delete(Integer reviewId) {
 		
 		Review review = reviewRepo.findById(reviewId).get();
-		System.out.println(review);
+		System.out.println("Review info is: " + review);
 		
 		Restaurant restaurant = review.getRestaurant();
 	    restaurant.getReviews().remove(review);
 	    restaurantRepo.save(restaurant);
 		
-		
 	    User user = review.getUser().get(0);
 	    user.getReviews().remove(review);
-	    userRepo.save(user); 
-	    
+	    userRepo.save(user);
 	    
 	    reviewRepo.delete(review);  
 	    

@@ -13,7 +13,7 @@
 
     <ul th:each="review : ${resReviews}">
         <div id="review-box">
-            <div th:text="${review.reviewContents}"></div>
+            <div><b>[[${review.user[0].email}]]</b>: [[${review.reviewContents}]]</div>
         </div><br />
     </ul>
 

@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
-    <head>
-        <title>Profile</title>
-        <link rel="stylesheet" href="/css/userProfile.css">
-    </head>
-    <body>
-        <h1>Welcome, [[${user.firstName}]]</h1>
 
-        <h3>Here are all of the reviews you've given!</h3><br/>
+<head>
+    <title>Profile</title>
+    <link rel="stylesheet" href="/css/userProfile.css">
+</head>
 
-        <ul th:each="review : ${resReviews}">
-            <div id="review-box"> <b>[[${review.restaurant.name}]]</b>: [[${review.reviewContents}]]<br/>
+<body>
+    <h1>Welcome, [[${user.firstName}]]</h1>
+
+    <h3>Here are all of the reviews you've given!</h3><br />
+
+    <ul th:each="review : ${resReviews}">
+        <div id="review-box"> <b>[[${review.restaurant.name}]]</b>: [[${review.reviewContents}]]<br />
             <form th:action="@{/users/profile/delete}" method="post">
                 <input type="hidden" name="reviewId" th:value="${review.reviewId}" />
                 <input id="delete-button" type="submit" value="Delete Review" />
             </form>
-            </div><br/>
-        </ul>
+        </div><br />
+    </ul>
 
-        <div>
-            <a href="/homepage">Back</a><br />
-        </div>
-    </body>
+    <div>
+        <a href="/homepage">Back</a><br />
+    </div>
+</body>
+
 </html>
