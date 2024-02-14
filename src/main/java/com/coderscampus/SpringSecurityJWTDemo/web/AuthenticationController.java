@@ -38,10 +38,10 @@ public class AuthenticationController {
 	}
     
 
-    @GetMapping("/signin")
-	public String getLogin (@ModelAttribute("user") User user) {
-		return "signin";
-	}
+//    @GetMapping("/signin")
+//	public String getLogin (@ModelAttribute("user") User user) {
+//		return "signin";
+//	}
     
     @GetMapping("/login-error")
     public String loginError (Model model) {

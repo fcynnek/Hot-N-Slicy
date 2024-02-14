@@ -1,36 +1,21 @@
 package com.coderscampus.SpringSecurityJWTDemo.security;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Optional;
-import java.util.function.Function;
 
-import org.springframework.util.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuery;
 import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.coderscampus.SpringSecurityJWTDemo.dao.request.RefreshTokenRequest;
-import com.coderscampus.SpringSecurityJWTDemo.domain.RefreshToken;
-import com.coderscampus.SpringSecurityJWTDemo.domain.User;
-import com.coderscampus.SpringSecurityJWTDemo.repository.RefreshTokenRepository;
 import com.coderscampus.SpringSecurityJWTDemo.service.RefreshTokenService;
-import com.coderscampus.SpringSecurityJWTDemo.service.UserService;
 import com.coderscampus.SpringSecurityJWTDemo.service.UserServiceImpl;
 import com.coderscampus.SpringSecurityJWTDemo.util.CookieUtils;
 
