@@ -38,10 +38,10 @@ public class AdminController {
 		this.passwordEncoder = passwordEncoder;
 	}
 
-	@PostConstruct // this adeptation worked, but if i update credentials it will regenerate anyways
-	public void init() {
-		createAdminUser();
-	}
+//	@PostConstruct // this adeptation worked, but if i update credentials it will regenerate anyways
+//	public void init() {
+//		createAdminUser();
+//	}
 
 	List<User> allAdmins = new ArrayList<>();
 

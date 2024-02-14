@@ -3,6 +3,7 @@ package com.coderscampus.SpringSecurityJWTDemo.service;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import com.coderscampus.SpringSecurityJWTDemo.domain.Restaurant;
 import com.coderscampus.SpringSecurityJWTDemo.domain.Review;
@@ -50,6 +51,16 @@ public class ReviewService {
 	    
 	    reviewRepo.delete(review);  
 	    
+	}
+
+	public void updateReview(Integer reviewId, String updatedReview) {
+		
+	    Review review = reviewRepo.findById(reviewId).orElse(null);
+	    review.setReviewContents(updatedReview);
+	    reviewRepo.save(review);
+
+	    System.out.println("Review with ID: " + reviewId + " updated successfully.");
+		
 	}
 	
 }

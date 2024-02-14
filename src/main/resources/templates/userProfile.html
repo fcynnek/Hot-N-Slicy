@@ -15,11 +15,16 @@
         <div id="review-box"> <b>[[${review.restaurant.name}]]</b>: [[${review.reviewContents}]]<br />
             <form th:action="@{/users/profile/delete}" method="post">
                 <input type="hidden" name="reviewId" th:value="${review.reviewId}" />
-                <input id="delete-button" type="submit" value="Delete Review" />
+                <button id="delete-button" type="submit">Delete Review</button>
             </form>
+            <!-- <button id="update-button" type="submit">Update Review</button>
+            <form id="update-form" th:action="@{/users/profile/update}" method="post" style="display: none;">
+                <input type="hidden" name="reviewId" th:value="${review.reviewId}" />
+                <textarea name="updatedReview" th:text="${review.reviewContents}"></textarea>
+                <input type="submit" value="Save" />
+            </form> -->
         </div><br />
     </ul>
-
     <div>
         <a href="/homepage">Back</a><br />
     </div>

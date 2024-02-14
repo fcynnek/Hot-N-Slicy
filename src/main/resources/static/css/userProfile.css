@@ -1,7 +1,7 @@
 #review-box {
     height: 50px; 
     width: 600px;
-    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-y: auto;
     border: 3px solid #ccc;
     padding: 10px; 
 }

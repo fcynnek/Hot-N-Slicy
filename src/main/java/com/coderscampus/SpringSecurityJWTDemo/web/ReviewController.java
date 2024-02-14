@@ -7,11 +7,12 @@ import java.util.Optional;
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.coderscampus.SpringSecurityJWTDemo.domain.Restaurant;
 import com.coderscampus.SpringSecurityJWTDemo.domain.Review;
@@ -20,7 +21,7 @@ import com.coderscampus.SpringSecurityJWTDemo.repository.RestaurantRepository;
 import com.coderscampus.SpringSecurityJWTDemo.service.ReviewService;
 import com.coderscampus.SpringSecurityJWTDemo.service.UserServiceImpl;
 
-@RestController
+@Controller
 public class ReviewController {
 
 	private ReviewService reviewService;
@@ -36,6 +37,7 @@ public class ReviewController {
 	}
 
 	@PostMapping("/restaurants/{id}")
+	@ResponseBody
 	public Review postMessage(@RequestBody Review review, @PathVariable("id") Integer id)
 			throws IllegalAccessException, InvocationTargetException {
 		Optional<Restaurant> foundRestaurant = resRepository.findById(id);
@@ -74,5 +76,12 @@ public class ReviewController {
 		reviewService.delete(reviewId);
 		return "redirect:/users/profile";
 	}
-
+	
+//	@PostMapping("/users/profile/update")
+//	public String updateReview(@RequestParam("reviewId") Integer reviewId, 
+//							   @RequestParam("updatedReview") String updatedReview) {
+//	    reviewService.updateReview(reviewId, updatedReview);
+//	    return "redirect:/users/profile";
+//	}
+ 
 }
