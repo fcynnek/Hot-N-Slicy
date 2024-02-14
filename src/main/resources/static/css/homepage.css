@@ -25,4 +25,13 @@
 .search-button{
     cursor: pointer;
 }
-
+body{
+    background-color: black;
+}
+#navBar{
+    background-color: white;
+}
+#title{
+    color: #C84C4C;
+    font-family: 'JetBrains Mono'; 
+}

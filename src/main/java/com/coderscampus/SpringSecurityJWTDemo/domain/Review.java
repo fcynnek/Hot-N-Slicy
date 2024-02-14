@@ -32,8 +32,6 @@ public class Review {
 	private String reviewContents;
 	@Column(name = "rest_id")
 	private Integer restaurantId;
-	@Column(nullable = true)
-    private LocalDateTime deletedAt;
 
 
 	public Review() {

@@ -79,9 +79,9 @@ public class RestaurantController {
 		return reviewsContent;
 	}
 
-//	@GetMapping("/process-csv")
-//	public ResponseEntity<String> processCsv() {
-//		fileService.readFile();
-//		return ResponseEntity.ok("CSV processing successful!");
-//	}
+	@GetMapping("/process-csv")
+	public ResponseEntity<String> processCsv() {
+		fileService.readFile();
+		return ResponseEntity.ok("CSV processing successful!");
+	}
 }

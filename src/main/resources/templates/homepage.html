@@ -16,21 +16,23 @@
 </head>
 
 <body>
-    <h1>Homepage</h1>
-    <h3>This will be your home page. We want to have a nav bar <br />
-        here that contains the site name, "profile", "logout", <br />
-        and "search pizza". This page should also comtain an "about us" <br />
-        and some fun facts/info/history of pizza and pictures.
-    </h3>
-
-    <form action="/logout" method="post">
-        <button class="logout-button" type="submit">Logout</button>
-    </form>
-    <div>
-        <a th:href="@{/users/profile}" class="button-link">
-            <button class="profile-button" type="button">Profile</button>
-        </a>
-    </div>
+    <header>
+        <ul id="navBar">
+            <div>
+                <h1 id="title">Hot 'N Slicy</h1>
+            </div>
+            <div>
+                <form action="/logout" method="post">
+                    <button class="logout-button" type="submit">Logout</button>
+                </form>
+            </div>
+            <div>
+                <a th:href="@{/users/profile}" class="button-link">
+                    <button class="profile-button" type="button">Profile</button>
+                </a>
+            </div>
+        </ul>
+    </header>
     <form id="searchForm" action="/restaurants/search" method="get">
         <input type="text" id="searchInput" name="keyword" placeholder="Search your pizza *"
                th:value="${keyword}">
