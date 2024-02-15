@@ -7,26 +7,28 @@
 </head>
 
 <body>
-    <h1>Welcome, [[${user.firstName}]]</h1>
+    <div id="header">
+        <h1 style="color: #C84C4C; margin: 30px;">Welcome, [[${user.firstName}]]</h1>
+        <div>
+            <a id="homepageLink" href="/homepage">Homepage</a><br />
+        </div>
+    </div>
 
-    <h3>Here are all of the reviews you've given!</h3><br />
-
-    <ul th:each="review : ${resReviews}">
-        <div id="review-box"> <b>[[${review.restaurant.name}]]</b>: [[${review.reviewContents}]]<br />
-            <form th:action="@{/users/profile/delete}" method="post">
-                <input type="hidden" name="reviewId" th:value="${review.reviewId}" />
-                <button id="delete-button" type="submit">Delete Review</button>
-            </form>
-            <!-- <button id="update-button" type="submit">Update Review</button>
-            <form id="update-form" th:action="@{/users/profile/update}" method="post" style="display: none;">
-                <input type="hidden" name="reviewId" th:value="${review.reviewId}" />
-                <textarea name="updatedReview" th:text="${review.reviewContents}"></textarea>
-                <input type="submit" value="Save" />
-            </form> -->
-        </div><br />
-    </ul>
-    <div>
-        <a href="/homepage">Back</a><br />
+    <div style="margin: 30px;">
+        Here are all of the reviews you've given!
+    </div>
+    <div id="box">
+        <div th:each="review : ${resReviews}">
+            <div id="review-box">
+                <a id="rrURL"
+                    th:href="@{/restaurants/{id}(id=${review.restaurant.id})}"><b>[[${review.restaurant.name}]]:</b></a>
+                <span style="color: black;"> [[${review.reviewContents}]]</span><br />
+                <form id="buttonPosition" th:action="@{/users/profile/delete}" method="post">
+                    <input type="hidden" name="reviewId" th:value="${review.reviewId}" />
+                    <button id="deleteButton" type="submit">Delete Review</button>
+                </form>
+            </div><br />
+        </div>
     </div>
 </body>
 

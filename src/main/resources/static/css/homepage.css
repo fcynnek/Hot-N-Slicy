@@ -1,8 +1,65 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    font-family: 'JetBrains Mono'; 
+}
+#header {
+    padding-top: .5em;
+	padding-bottom: .5em;
+	border: 1px solid #a2a2a2;
+	background-color: #f4f4f4;
+	-webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline; 
+}
+#logoutLink{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+#profileLink{
+    margin: 30px;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+#logoutLink:hover{
+    text-decoration: underline;
+}
+#profileLink:hover{
+    text-decoration: underline;
+}
+#searchInput{
+    font-family: 'JetBrains Mono'; 
+    border: 1px solid #a2a2a2;
+    background-color: #f7f7f7;
+    -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+    border-radius: 2px;
+    margin-top: 50px;
+    margin-left: 30px;
+    height: 30px;
+    width: 300px;
+}
 .suggestions-container {
-    border: 1px solid #ccc;
+    border: 1px solid #a2a2a2;
+    -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+    border-radius: 2px;
+    margin-left: 30px;
     background-color: #fff;
     max-height: 150px;
-    width: 300px;
+    width: 295px;
     overflow-y: auto;
     padding: 5px;
 }
@@ -16,22 +73,14 @@
 .suggestions-container a:hover {
     background-color: #f0f0f0;
 }
-.logout-button{
-    cursor: pointer;
-}
-.profile-button{
-    cursor: pointer;
-}
 .search-button{
+    border: 1px black solid;
+    font-family: 'JetBrains Mono'; 
+    background-color: white;
+    color: black;
     cursor: pointer;
 }
-body{
+.search-button:hover{
     background-color: black;
-}
-#navBar{
-    background-color: white;
-}
-#title{
-    color: #C84C4C;
-    font-family: 'JetBrains Mono'; 
+    color: white;
 }

@@ -1,4 +1,4 @@
-var sendButton = document.querySelector(`#send-button`)
+var sendButton = document.querySelector(`#sendButton`)
 var messageInput = document.querySelector(`#message-input`)
 
 var restaurantId = messageInput.getAttribute('restaurant-id')

@@ -7,27 +7,30 @@
 </head>
 
 <body>
-    <h1>[[${restaurant.name}]]</h1><br />
+    <div id="header">
+        <h1 style="color: #C84C4C; margin: 30px;">[[${restaurant.name}]]</h1><br />
+        <div>
+            <a id="homepageLink" href="/homepage">Homepage</a>
+            <a id="profileLink" href="/users/profile">Profile</a>
+        </div>
+    </div>
 
-    <h3>Leave a review here!</h3><br />
+    <h3 style="margin: 30px" ;>Leave a review here!</h3><br />
 
-    <ul th:each="review : ${resReviews}">
-        <div id="review-box">
-            <div><b>[[${review.user[0].email}]]</b>: [[${review.reviewContents}]]</div>
-        </div><br />
-    </ul>
+    <div id="box">
+        <div th:each="review : ${resReviews}">
+            <div id="review-box">
+                <div><b style="color: #C84C4C;">[[${review.user[0].firstName}]]
+                        [[${review.user[0].lastName}]]:</b> <b style="color: black;">[[${review.reviewContents}]]</b></div>
+            </div><br />
+        </div>
+    </div>
 
-
-    <div>
+    <div id="footer">
         <textarea id="message-input" th:attr="restaurant-id=${restaurant.id}"
             placeholder="Type your review..."></textarea>
-        <button id="send-button">Send</button>
+        <button id="sendButton">Send</button>
     </div>
-
-    <div>
-        <a href="/homepage">Back</a><br />
-    </div>
-
     <script th:inline="javascript" type="text/javascript" src="/js/restaurant.js"></script>
 </body>
 

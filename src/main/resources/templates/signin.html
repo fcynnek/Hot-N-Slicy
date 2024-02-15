@@ -10,13 +10,13 @@
   <h2 style="color: #C84C4C;">Sign-In</h2>
   <form th:object="${user}" th:action="@{/signin}" method="post" enctype="application/x-www-form-urlencoded" id="loginForm">
 
-    <label for="email" style="color: white;"><b>Email</b></label>
+    <label for="email" style="color: black;"><b>Email</b></label>
     <input type="text" placeholder="Enter Email *" th:field="*{email}" name="email" class="required" required>
 
-    <label for="password" style="color: white;"><b>Password</b></label>
+    <label for="password" style="color: black;"><b>Password</b></label>
     <input type="password" placeholder="Enter Password *" th:field="*{password}" name="password" class="required" required>
 
-    <button type="submit" style="border: 1px solid #ffffff;">Log in</button>
+    <button type="submit" style="border: 2px solid black;">Log in</button>
   </form>
 </div>
 

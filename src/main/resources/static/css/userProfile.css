@@ -1,10 +1,74 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'JetBrains Mono'; 
+    color: white;
+    background-color: white;
+}
+#header {
+    padding-top: .5em;
+	padding-bottom: .5em;
+	border: 1px solid #a2a2a2;
+	background-color: #f4f4f4;
+	-webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline; 
+}
+#homepageLink{
+    margin: 30px;
+    color: black;
+    text-decoration: none;
+}
+#homepageLink:hover{
+    text-decoration: underline;
+}
+#box{
+    display: grid;
+    justify-content: center;
+    align-items: end;
+}
 #review-box {
-    height: 50px; 
+    height: 55px; 
     width: 600px;
     overflow-y: auto;
-    border: 3px solid #ccc;
+    padding-top: .5em;
+	padding-bottom: .5em;
+	border: 1px solid #a2a2a2;
+	background-color: #f7f7f7;
+	-webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+	-webkit-border-radius: 1px;
+	-moz-border-radius: 1px;
+	border-radius: 1px;
     padding: 10px; 
 }
-#delete-button{
+#buttonPosition{
+    display: grid;
+    justify-content: flex-end;
+    align-items: end;
+}
+#deleteButton{
+    border: 1px black solid;
     margin-top: 10px;
+    font-family: 'JetBrains Mono'; 
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+#deleteButton:hover{
+    background-color: #C84C4C;
+}
+#rrURL{
+    color: #C84C4C;
+    text-decoration: none;
+}
+#rrURL:hover{
+    text-decoration: underline;
 }

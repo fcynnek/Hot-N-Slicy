@@ -16,30 +16,20 @@
 </head>
 
 <body>
-    <header>
-        <ul id="navBar">
-            <div>
-                <h1 id="title">Hot 'N Slicy</h1>
-            </div>
-            <div>
-                <form action="/logout" method="post">
-                    <button class="logout-button" type="submit">Logout</button>
-                </form>
-            </div>
-            <div>
-                <a th:href="@{/users/profile}" class="button-link">
-                    <button class="profile-button" type="button">Profile</button>
-                </a>
-            </div>
-        </ul>
-    </header>
+    <div id="header">
+        <h1 style="color: #C84C4C; margin: 30px;">Hot 'N Slicy</h1>
+        <div>
+            <a href="/logout" method="post" id="logoutLink">Logout</a>
+            <a th:href="@{/users/profile}" id="profileLink">Profile</a>
+        </div>
+    </div>
+
     <form id="searchForm" action="/restaurants/search" method="get">
-        <input type="text" id="searchInput" name="keyword" placeholder="Search your pizza *"
-               th:value="${keyword}">
+        <input type="text" id="searchInput" name="keyword" placeholder="Search your pizza *" th:value="${keyword}">
         <button class="search-button" type="submit">Search</button>
         <div id="suggestions"></div>
     </form>
-    
+
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
